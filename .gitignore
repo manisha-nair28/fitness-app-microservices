@@ -1,0 +1,71 @@
+# ========================
+# Java / Spring Boot
+# ========================
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+
+# ========================
+# Maven / Gradle
+# ========================
+.mvn/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/gradle-wrapper.jar
+
+# ========================
+# IntelliJ / VSCode
+# ========================
+.idea/
+.vscode/
+*.iml
+
+# ========================
+# Logs and Temp Files
+# ========================
+*.log
+logs/
+*.tmp
+*.swp
+*.swo
+
+# ========================
+# OS / System Files
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========================
+# Environment & Configs
+# ========================
+.env
+*.env
+*.properties
+*.yml
+*.yaml
+
+# However, explicitly allow non-sensitive YMLs inside each service
+# (for example, their local setup configs)
+!**/src/main/resources/application.yml
+!**/src/main/resources/bootstrap.yml
+
+# ========================
+# Node / Frontend (UI module)
+# ========================
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+
+# ========================
+# Config Server Sensitive Files
+# ========================
+# internal configs with credentials
+configserver/src/main/resources/config/
+
+
