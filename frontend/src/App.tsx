@@ -4,7 +4,19 @@ import { AuthContext } from "react-oauth2-code-pkce";
 import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Navigate, Route, Routes, useLocation } from "react-router";
 import { setCredentials } from "./store/authSlice";
+import ActivityDetail from "./components/ActivityDetail";
+import ActivityForm from "./components/ActivityForm";
+import ActivityList from "./components/ActivityList";
 
+const ActivitiesPage = () => {
+  return (
+    <Box sx={{ p: 2, border: '1px dashed grey' }}>
+      <ActivityForm onActivitiesAdded = { () => window.location.reload()} />
+      <ActivityList />  
+    </Box>
+  );
+ 
+}
 
 function App() {
 
@@ -30,9 +42,17 @@ function App() {
         LOGIN
       </Button>
       ) : (
-        <div>
-          <pre>{JSON.stringify(tokenData, null, 2)}</pre>
-        </div>
+        // <div>
+        //   <pre>{JSON.stringify(tokenData, null, 2)}</pre>
+        //   <pre>{JSON.stringify(token, null, 2)}</pre>
+        // </div>
+        <Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
+          <Routes>
+            <Route path="/activities" element={<ActivitiesPage />}  />
+            <Route path="/activities/:id" element={<ActivityDetail />}  />
+            <Route path="/" element={token ? <Navigate to="/activities" replace/> : <div>Welcome! Please Login.</div>} />
+          </Routes>
+        </Box>
       )}
     </Router>
   )
